@@ -4,22 +4,26 @@ public class Vehicle {
     private int horsepower;
     private String type;
 
-    public Vehicle(String model, String colour, int horsepower, String type){
+    public Vehicle(String model, String colour, int horsepower, String type) {
         this.model = model;
         this.colour = colour;
         this.horsepower = horsepower;
         this.type = type;
     }
 
-    public String toString(){
-        return String.format("Type: %s\nModel: %s\nColor: %s\nHorsepower: %s", type,model,colour,horsepower);
+    public String toString() {
+        if (type.toLowerCase().equals("car")) {
+            return String.format("Type: Car\nModel: %s\nColor: %s\nHorsepower: %s", type, model, colour, horsepower);
+        } else {
+            return String.format("Type: Truck\nModel: %s\nColor: %s\nHorsepower: %s", type, model, colour, horsepower);
+        }
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
-    public int getHorsepower(){
+    public int getHorsepower() {
         return horsepower;
     }
 }
