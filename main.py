@@ -30,5 +30,4 @@ user_word = input("Enter a word: ").upper()
 
 user_letters = {nato_alphabet_dict[letter] for letter in user_word}
 
-
 print(user_letters)
