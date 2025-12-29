@@ -1,5 +1,5 @@
 student_dict = {
-    "student": ["Angela", "James", "Lily"], 
+    "student": ["Angela", "James", "Lily"],
     "score": [56, 76, 98]
 }
 
@@ -22,12 +22,16 @@ for (index, row) in student_data_frame.iterrows():
 
 nato_alphabet_df = pandas.read_csv("nato_phonetic_alphabet.csv")
 
-#TODO 1. Create a dictionary in this format:
 nato_alphabet_dict= {raw.letter:raw.code for (index, raw) in nato_alphabet_df.iterrows()}
 
-user_word = input("Enter a word: ").upper()
-#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+def generate_phonetic():
+    user_word = input("Enter a word: ").upper()
+    try:
+        user_letters = [nato_alphabet_dict[letter] for letter in user_word]
+    except KeyError:
+        print('Sorry, only letters in the alphabet please.')
+        generate_phonetic()
+    else:
+        print(user_letters)
 
-user_letters = {nato_alphabet_dict[letter] for letter in user_word}
-
-print(user_letters)
+generate_phonetic()
